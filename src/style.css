@@ -1,0 +1,14 @@
+.hero-overlay h1 {
+  font-weight: 700;
+  font-size: 48px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.property-grid img {
+  border-radius: 8px;
+  transition: transform 0.25s;
+}
+
+.property-grid img:hover {
+  transform: scale(1.03);
+}

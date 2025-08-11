@@ -1,0 +1,1 @@
+export const serverURL="https://cozy-cabins-1.onrender.com"
