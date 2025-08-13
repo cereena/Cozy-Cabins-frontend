@@ -6,7 +6,7 @@ export default function MiniImageSlider({ images }) {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex(prev => (prev + 1) % images.length);
-    }, 2000); // change every 2 sec
+    }, 2000); 
 
     return () => clearInterval(timer);
   }, [images.length]);

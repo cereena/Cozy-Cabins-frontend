@@ -16,10 +16,10 @@ export default function NavbarMain() {
             <Navbar bg="light" expand={false} className="shadow-sm">
   <Container>
     <div className="d-flex align-items-center gap-2">
-      {/* Hamburger */}
+    
       <Navbar.Toggle aria-controls="offcanvasNavbar" />
 
-      {/* Logo */}
+    
       <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
         <img
           src={logo}
@@ -49,7 +49,7 @@ export default function NavbarMain() {
       </Navbar.Brand>
     </div>
 
-    {/* Offcanvas */}
+    
     <Navbar.Offcanvas id="offcanvasNavbar" placement="start">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Menu</Offcanvas.Title>

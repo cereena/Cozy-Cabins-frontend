@@ -6,7 +6,7 @@ export default function Footer() {
     <footer style={{ backgroundColor: "black", color: "white" }} className="py-5">
       <div className="container">
         <div className="row">
-          {/* Company Info */}
+          
           <div className="col-md-4 mb-4">
             <h5 style={{ color: "#3eb489" }}>Company</h5>
             <ul className="list-unstyled">
@@ -16,7 +16,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Resources */}
+         
           <div className="col-md-4 mb-4">
             <h5 style={{ color: "#3eb489" }}>Resources</h5>
             <ul className="list-unstyled">
@@ -26,7 +26,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact & Social */}
+          
           <div className="col-md-4 mb-4">
             <h5 style={{ color: "#3eb489" }}>Get in Touch</h5>
             <p><FaEnvelope className="me-2" /> info@realestatepro.com</p>

@@ -6,7 +6,7 @@ const ImageGallery = ({ images }) => {
 
   return (
     <Row>
-      {/* Big image */}
+     
       <Col md={8}>
         <Image
           src={images[0]}
@@ -20,7 +20,7 @@ const ImageGallery = ({ images }) => {
         />
       </Col>
 
-      {/* 4 small images stacked */}
+      
       <Col md={4} className="d-flex flex-column gap-2">
         {images.slice(1, 5).map((img, idx) => (
           <Image

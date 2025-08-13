@@ -4,7 +4,7 @@ import PropertyCard from '../Components/PropertyCard';
 import FilterSidebar from '../Components/FilterSidebar';
 import { getAllPropertiesAPI } from '../Service/allApi';
 
-// Backend base URL
+
 const BASE_URL = "https://cozy-cabins-2.onrender.com/";
 
 export default function Listings() {
@@ -19,7 +19,6 @@ export default function Listings() {
     const fetchData = async () => {
       const res = await getAllPropertiesAPI();
       if (res.status === 200) {
-        // Fix image paths
         const updatedData = res.data.map(p => ({
           ...p,
           images: p.images?.map(img =>
@@ -71,7 +70,7 @@ export default function Listings() {
         </Col>
 
         <Col md={9}>
-          {/* Search Filters */}
+          
           <Form className="mb-3 d-flex gap-2">
             <Form.Select value={location} onChange={e => setLocation(e.target.value)}>
               <option value="">Any Location</option>
@@ -96,7 +95,7 @@ export default function Listings() {
             </Button>
           </Form>
 
-          {/* Property Cards */}
+         
           <Row className="g-4">
             {filtered.length > 0 ? (
               filtered.map(p => (

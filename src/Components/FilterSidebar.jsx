@@ -6,7 +6,7 @@ export default function FilterSidebar({ bedrooms, setBedrooms, rentFilter, setRe
     <Card className="p-3">
       <h5 style={{ color: "#3eb489" }}>Filters</h5>
 
-      {/* Bedrooms */}
+      
       <Form.Group className="mb-3">
         <Form.Label>Number of Bedrooms</Form.Label>
         <Form.Select value={bedrooms} onChange={e => setBedrooms(e.target.value)}>
@@ -17,7 +17,7 @@ export default function FilterSidebar({ bedrooms, setBedrooms, rentFilter, setRe
         </Form.Select>
       </Form.Group>
 
-      {/* Rent */}
+      
       <Form.Group>
         <Form.Label>Rent</Form.Label>
         <div className="d-flex flex-column gap-1">

@@ -42,7 +42,7 @@ export default function SellProperty() {
 
     const token = localStorage.getItem("token");
 
-    // 1️⃣ Check if user is logged in
+    
     if (!token) {
       Swal.fire({
         icon: "warning",
@@ -53,7 +53,7 @@ export default function SellProperty() {
       return;
     }
 
-    // 2️⃣ If logged in, check if all required fields are filled
+    
     if (!allFieldsFilled) return;
 
     // 3️⃣ Show success toast
@@ -65,7 +65,7 @@ export default function SellProperty() {
       timer: 2000,
     });
 
-    // 4️⃣ Save submitted data
+    
     setSubmittedData({
       ...formData,
       propertyType,
@@ -99,7 +99,7 @@ export default function SellProperty() {
           <p><strong>Price:</strong> ₹{submittedData.price}</p>
           <p><strong>After Commission:</strong> ₹{submittedData.afterPrice}</p>
 
-          {/* Show images */}
+       
           {submittedData.files && submittedData.files.length > 0 && (
             <div className="mt-3">
               <strong>Uploaded Images:</strong>

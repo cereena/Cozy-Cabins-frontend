@@ -26,7 +26,7 @@ const PropertyDetail = () => {
   const handleSend = (e) => {
     e.preventDefault();
 
-    // Simple validation
+    
     if (!form.name || !form.email || !form.phone || !form.message) {
       toast.error("⚠ Please fill all the fields before sending!", {
         position: "top-center",
@@ -35,13 +35,13 @@ const PropertyDetail = () => {
       return;
     }
 
-    // Success message
+    
     toast.success("✅ Message sent to owner!", {
       position: "top-center",
       autoClose: 2500,
     });
 
-    // Reset form after sending
+   
     setForm({ name: "", email: "", phone: "", message: "" });
   };
 
@@ -49,7 +49,7 @@ const PropertyDetail = () => {
 
   return (
     <div>
-      {/* Toast container */}
+      
       <ToastContainer />
 
       <h3 className="mb-3 mt-2 mx-4" style={{ color: "#3eb489", fontWeight: "600" }}>
