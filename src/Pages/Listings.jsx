@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import PropertyCard from '../Components/PropertyCard';
 import FilterSidebar from '../Components/FilterSidebar';
-import rent3 from "../assets/rent3.jpg";
+import rent3 from "../assets/rent1.png";
 import living1 from "../assets/living1.jpg";
 import room1 from "../assets/room1.jpg";
 import extra1 from "../assets/extra1.jpg";
@@ -62,7 +62,6 @@ const properties = [
   }
 ];
 
-
 export default function Listings() {
   const [location, setLocation] = useState('');
   const [type, setType] = useState('');
@@ -75,24 +74,14 @@ export default function Listings() {
   const handleSearch = () => {
     let result = propsList;
 
-    if (location) {
-      result = result.filter(p => p.location.toLowerCase() === location.toLowerCase());
-    }
-    if (type) {
-      result = result.filter(p => p.type.toLowerCase() === type.toLowerCase());
-    }
-    if (bedrooms) {
-      result = result.filter(p => p.Bedroom === parseInt(bedrooms));
-    }
+    if (location) result = result.filter(p => p.location.toLowerCase() === location.toLowerCase());
+    if (type) result = result.filter(p => p.type.toLowerCase() === type.toLowerCase());
+    if (bedrooms) result = result.filter(p => p.Bedroom === parseInt(bedrooms));
     if (rentFilter) {
-      const parsePrice = (priceStr) => parseInt(priceStr.replace(/[^\d]/g, ""), 10);
-      if (rentFilter === "below5k") {
-        result = result.filter(p => parsePrice(p.price) < 5000);
-      } else if (rentFilter === "below10k") {
-        result = result.filter(p => parsePrice(p.price) < 10000);
-      } else if (rentFilter === "below15k") {
-        result = result.filter(p => parsePrice(p.price) < 15000);
-      }
+      const parsePrice = priceStr => parseInt(priceStr.replace(/[^\d]/g, ""), 10);
+      if (rentFilter === "below5k") result = result.filter(p => parsePrice(p.price) < 5000);
+      else if (rentFilter === "below10k") result = result.filter(p => parsePrice(p.price) < 10000);
+      else if (rentFilter === "below15k") result = result.filter(p => parsePrice(p.price) < 15000);
     }
 
     setFiltered(result);
@@ -101,7 +90,8 @@ export default function Listings() {
   return (
     <Container className="mt-4 mb-5">
       <Row>
-        <Col md={3}>
+        {/* Sidebar */}
+        <Col xs={12} md={3} className="mb-3 mb-md-0">
           <FilterSidebar
             bedrooms={bedrooms}
             setBedrooms={setBedrooms}
@@ -110,8 +100,9 @@ export default function Listings() {
           />
         </Col>
 
-        <Col md={9}>
-          <Form className="mb-3 d-flex gap-2">
+        {/* Main content */}
+        <Col xs={12} md={9}>
+          <Form className="mb-3 d-flex flex-column flex-md-row gap-2">
             <Form.Select value={location} onChange={e => setLocation(e.target.value)}>
               <option value="">Any Location</option>
               <option value="Kochi">Kochi</option>
@@ -120,7 +111,7 @@ export default function Listings() {
               <option value="Vytilla">Vytilla</option>
             </Form.Select>
 
-            <Form.Select value={type} onChange={e => setType(e.target.value)} style={{ width: 200 }}>
+            <Form.Select value={type} onChange={e => setType(e.target.value)} style={{ minWidth: 150 }}>
               <option value="">Any Type</option>
               <option value="house">House</option>
               <option value="appartment">Appartment</option>
@@ -138,8 +129,7 @@ export default function Listings() {
           <Row className="g-4">
             {filtered.length > 0 ? (
               filtered.map(p => (
-                <Col md={6} key={p.id}>
-                  {/* Pass the property with updated image URLs to PropertyCard */}
+                <Col xs={12} sm={6} key={p.id}>
                   <PropertyCard property={p} />
                 </Col>
               ))
