@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import house1 from "../assets/rent1.png";
+import house1 from "../assets/rent5.jpg";
 import house2 from "../assets/rent2.jpg";
 import house3 from "../assets/rent3.jpg";
+import house4 from "../assets/rent6.jpg";
 
-const images = [house1, house2, house3];
+const images = [house1, house2, house3,house4];
 
 function ImageSlider() {
   const [index, setIndex] = useState(0);

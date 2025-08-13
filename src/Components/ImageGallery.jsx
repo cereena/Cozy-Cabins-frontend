@@ -30,7 +30,7 @@ const ImageGallery = ({ images }) => {
             fluid
             style={{
               borderRadius: "10px",
-              height: "calc(25% - 6px)", // divide evenly
+              height: "calc(25% - 6px)",
               objectFit: "cover",
               flex: "1"
             }}
