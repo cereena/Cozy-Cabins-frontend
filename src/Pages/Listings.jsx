@@ -5,7 +5,13 @@ import FilterSidebar from '../Components/FilterSidebar';
 import { getAllPropertiesAPI } from '../Service/allApi';
 
 
-const BASE_URL = "https://cozy-cabins-2.onrender.com/";
+const BASE_URL = "https://cozy-cabins-2.onrender.com";
+
+
+const getImageUrl = (imgPath) => {
+  if (!imgPath) return "/placeholder.png"; 
+  return imgPath.startsWith("http") ? imgPath : `${BASE_URL}${imgPath}`;
+};
 
 export default function Listings() {
   const [location, setLocation] = useState('');
@@ -17,16 +23,19 @@ export default function Listings() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await getAllPropertiesAPI();
-      if (res.status === 200) {
-        const updatedData = res.data.map(p => ({
-          ...p,
-          images: p.images?.map(img =>
-            img?.startsWith("http") ? img : `${BASE_URL}/${img.replace(/^\/+/, '')}`
-          )
-        }));
-        setPropsList(updatedData);
-        setFiltered(updatedData);
+      try {
+        const res = await getAllPropertiesAPI();
+        if (res.status === 200) {
+          // Convert image paths to full URLs
+          const updatedData = res.data.map(p => ({
+            ...p,
+            images: p.images?.map(getImageUrl),
+          }));
+          setPropsList(updatedData);
+          setFiltered(updatedData);
+        }
+      } catch (err) {
+        console.error("Error fetching properties:", err);
       }
     };
     fetchData();
@@ -54,6 +63,7 @@ export default function Listings() {
         result = result.filter(p => parsePrice(p.price) < 15000);
       }
     }
+
     setFiltered(result);
   };
 
@@ -70,7 +80,6 @@ export default function Listings() {
         </Col>
 
         <Col md={9}>
-          
           <Form className="mb-3 d-flex gap-2">
             <Form.Select value={location} onChange={e => setLocation(e.target.value)}>
               <option value="">Any Location</option>
@@ -95,11 +104,11 @@ export default function Listings() {
             </Button>
           </Form>
 
-         
           <Row className="g-4">
             {filtered.length > 0 ? (
               filtered.map(p => (
                 <Col md={6} key={p.id}>
+                  {/* Pass the property with updated image URLs to PropertyCard */}
                   <PropertyCard property={p} />
                 </Col>
               ))

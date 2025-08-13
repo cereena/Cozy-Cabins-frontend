@@ -7,8 +7,7 @@ import home3Img from "../assets/logo3.png";
 import video from "../assets/Main video.mp4";
 import { getAllPropertiesAPI } from '../Service/allApi';
 
-// Your deployed backend URL
-const BASE_URL = "https://cozy-cabins-2.onrender.com/";
+const BASE_URL = "https://cozy-cabins-2.onrender.com";
 
 export default function Home() {
     const [properties, setProperties] = useState([]);
@@ -89,10 +88,10 @@ export default function Home() {
                                 <Card className="h-100">
                                     <Card.Img
                                         variant="top"
-                                        src={getImageUrl(p.images?.[0])}
+                                        src={getImageUrl(p.images?.[0])}  // <-- use it here
                                         alt={p.title}
                                         style={{ width: "100%", height: "250px", objectFit: "cover" }}
-                                        onError={(e) => e.target.src = placeholderImg}
+                                        onError={(e) => e.target.src = placeholderImg} // fallback
                                     />
                                     <Card.Body>
                                         <Card.Title>{p.title}</Card.Title>
