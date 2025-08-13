@@ -5,7 +5,7 @@ import FilterSidebar from '../Components/FilterSidebar';
 import { getAllPropertiesAPI } from '../Service/allApi';
 
 // Backend base URL
-const BASE_URL = "https://cozy-cabins-2.onrender.com";
+const BASE_URL = "https://cozy-cabins-2.onrender.com/";
 
 export default function Listings() {
   const [location, setLocation] = useState('');

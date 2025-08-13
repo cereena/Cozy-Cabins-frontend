@@ -9,7 +9,7 @@ import placeholderImg from "../assets/placeholder.jpg"; // Add a placeholder in 
 import { getAllPropertiesAPI } from '../Service/allApi';
 
 // Your deployed backend URL
-const BASE_URL = "https://cozy-cabins-2.onrender.com";
+const BASE_URL = "https://cozy-cabins-2.onrender.com/";
 
 export default function Home() {
     const [properties, setProperties] = useState([]);
