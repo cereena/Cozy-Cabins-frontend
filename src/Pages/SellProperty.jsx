@@ -56,7 +56,6 @@ export default function SellProperty() {
     
     if (!allFieldsFilled) return;
 
-    // 3️⃣ Show success toast
     Swal.fire({
       icon: "success",
       title: "Your post has been submitted for review",
