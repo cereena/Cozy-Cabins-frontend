@@ -32,6 +32,7 @@ import living8 from "../assets/living8.jpg";
 import room8 from "../assets/room8.jpg";
 import extra8 from "../assets/extra8.jpg";
 import kitchen8 from "../assets/kitchen8.jpg";
+import { getAllPropertiesAPI } from '../Service/allApi';
 
 
 const properties = [
@@ -42,7 +43,7 @@ const properties = [
     location: "Kochi",
     Bedroom: 2,
     type: "Appartment",
-    images: [rent3, living1, room1, extra1, kitchen1]
+    images: [rent8, living1, room1, extra1, kitchen1]
   },
   {
     id: 2,
@@ -100,6 +101,23 @@ export default function Listings() {
 
   const [propsList, setPropsList] = useState(properties);
   const [filtered, setFiltered] = useState(properties);
+  const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+          const fetchData = async () => {
+              try {
+                  const result = await getAllPropertiesAPI();
+                  if (result.status >= 200 && result.status < 300) {
+                      setProperties(result.data);
+                  } else {
+                      console.error("Failed to load properties:", result);
+                  }
+              } catch (err) {
+                  console.error("Error fetching properties:", err);
+              }
+          };
+          fetchData();
+      }, []);
 
   const handleSearch = () => {
     let result = propsList;
