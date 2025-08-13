@@ -5,7 +5,11 @@ import home1Img from "../assets/logo1.png";
 import home2Img from "../assets/logo2.png";
 import home3Img from "../assets/logo3.png";
 import video from "../assets/Main video.mp4";
+import placeholderImg from "../assets/placeholder.jpg"; // Add a placeholder in assets
 import { getAllPropertiesAPI } from '../Service/allApi';
+
+// Your deployed backend URL
+const BASE_URL = "https://cozy-cabins-2.onrender.com";
 
 export default function Home() {
     const [properties, setProperties] = useState([]);
@@ -25,6 +29,13 @@ export default function Home() {
         };
         fetchData();
     }, []);
+
+    // Helper to get full image URL
+    const getImageUrl = (imgPath) => {
+        if (!imgPath) return placeholderImg;
+        if (imgPath.startsWith("http")) return imgPath;
+        return `${BASE_URL}/${imgPath.replace(/^\/+/, '')}`;
+    };
 
     return (
         <>
@@ -86,10 +97,10 @@ export default function Home() {
                                 <Card className="h-100">
                                     <Card.Img
                                         variant="top"
-                                        src={p.images?.[0]}
+                                        src={getImageUrl(p.images?.[0])}
                                         alt={p.title}
                                         style={{ width: "100%", height: "250px", objectFit: "cover" }}
-                                        onError={(e) => (e.target.src = "/placeholder.jpg")}
+                                        onError={(e) => e.target.src = placeholderImg}
                                     />
                                     <Card.Body>
                                         <Card.Title>{p.title}</Card.Title>

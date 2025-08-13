@@ -4,6 +4,9 @@ import PropertyCard from '../Components/PropertyCard';
 import FilterSidebar from '../Components/FilterSidebar';
 import { getAllPropertiesAPI } from '../Service/allApi';
 
+// Backend base URL
+const BASE_URL = "https://cozy-cabins-2.onrender.com";
+
 export default function Listings() {
   const [location, setLocation] = useState('');
   const [type, setType] = useState('');
@@ -12,13 +15,19 @@ export default function Listings() {
   const [propsList, setPropsList] = useState([]);
   const [filtered, setFiltered] = useState([]);
 
-  // Fetch properties
   useEffect(() => {
     const fetchData = async () => {
       const res = await getAllPropertiesAPI();
       if (res.status === 200) {
-        setPropsList(res.data);
-        setFiltered(res.data); // Initially show all
+        // Fix image paths
+        const updatedData = res.data.map(p => ({
+          ...p,
+          images: p.images?.map(img =>
+            img?.startsWith("http") ? img : `${BASE_URL}/${img.replace(/^\/+/, '')}`
+          )
+        }));
+        setPropsList(updatedData);
+        setFiltered(updatedData);
       }
     };
     fetchData();
@@ -27,25 +36,17 @@ export default function Listings() {
   const handleSearch = () => {
     let result = propsList;
 
-    // Location filter (case-insensitive)
     if (location) {
       result = result.filter(p => p.location.toLowerCase() === location.toLowerCase());
     }
-
-    // Type filter (case-insensitive)
     if (type) {
       result = result.filter(p => p.type.toLowerCase() === type.toLowerCase());
     }
-
-    // Bedrooms filter (match db.json "Bedroom" key)
     if (bedrooms) {
       result = result.filter(p => p.Bedroom === parseInt(bedrooms));
     }
-
-    // Rent filter — parse number from price string
     if (rentFilter) {
       const parsePrice = (priceStr) => parseInt(priceStr.replace(/[^\d]/g, ""), 10);
-
       if (rentFilter === "below5k") {
         result = result.filter(p => parsePrice(p.price) < 5000);
       } else if (rentFilter === "below10k") {
@@ -54,10 +55,8 @@ export default function Listings() {
         result = result.filter(p => parsePrice(p.price) < 15000);
       }
     }
-
     setFiltered(result);
   };
-
 
   return (
     <Container className="mt-4 mb-5">
