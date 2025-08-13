@@ -22,6 +22,17 @@ import living4 from "../assets/living4.jpg";
 import room4 from "../assets/room4.jpg";
 import extra4 from "../assets/extra4.jpg";
 import kitchen4 from "../assets/kitchen4.jpg";
+import rent7 from "../assets/rent7.jpg";
+import living7 from "../assets/living7.jpg";
+import room7 from "../assets/room7.jpg";
+import extra7 from "../assets/extra7.jpg";
+import kitchen7 from "../assets/kitchen7.jpg";
+import rent8 from "../assets/rent8.jpg";
+import living8 from "../assets/living8.jpg";
+import room8 from "../assets/room8.jpg";
+import extra8 from "../assets/extra8.jpg";
+import kitchen8 from "../assets/kitchen8.jpg";
+
 
 const properties = [
   {
@@ -59,6 +70,24 @@ const properties = [
     Bedroom: 3,
     type: "House",
     images: [rent4, living4, room4, extra4, kitchen4]
+  },
+  {
+    id: 5,
+    title: "Residential Appartment in Vytilla",
+    price: "₹6,900",
+    location: "Vytilla",
+    Bedroom: 3,
+    type: "Appartment",
+    images: [rent7, living7, room7, extra7, kitchen7]
+  },
+  {
+    id: 6,
+    title: " Home in Kakkanad",
+    price: "₹4,900",
+    location: "Vytilla",
+    Bedroom: 3,
+    type: "House",
+    images: [rent8, living8, room8, extra8, kitchen8]
   }
 ];
 
@@ -101,7 +130,7 @@ export default function Listings() {
   return (
     <Container className="mt-4 mb-5">
       <Row>
-       
+
         <Col xs={12} md={3} className="mb-3 mb-md-0">
           <FilterSidebar
             bedrooms={bedrooms}
