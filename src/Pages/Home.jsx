@@ -5,7 +5,6 @@ import home1Img from "../assets/logo1.png";
 import home2Img from "../assets/logo2.png";
 import home3Img from "../assets/logo3.png";
 import video from "../assets/Main video.mp4";
-import placeholderImg from "../assets/placeholder.jpg"; // Add a placeholder in assets
 import { getAllPropertiesAPI } from '../Service/allApi';
 
 // Your deployed backend URL
