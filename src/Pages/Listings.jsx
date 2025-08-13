@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import PropertyCard from '../Components/PropertyCard';
 import FilterSidebar from '../Components/FilterSidebar';
-import rent3 from "../assets/rent5.jpg";
+import rent8 from "../assets/rent8.jpg";
 import living1 from "../assets/living1.jpg";
 import room1 from "../assets/room1.jpg";
 import extra1 from "../assets/extra1.jpg";

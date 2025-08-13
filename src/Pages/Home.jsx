@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import home1Img from "../assets/logo1.png";
 import home2Img from "../assets/logo2.png";
 import home3Img from "../assets/logo3.png";
-import rent3 from "../assets/rent5.jpg";
+import rent8 from "../assets/rent8.jpg";
 import living1 from "../assets/living1.jpg";
 import room1 from "../assets/room1.jpg";
 import extra1 from "../assets/extra1.jpg";
@@ -45,7 +45,7 @@ const properties = [
         location: "Kochi",
         Bedroom: 2,
         type: "Appartment",
-        images: [rent3, living1, room1, extra1, kitchen1]
+        images: [rent8, living1, room1, extra1, kitchen1]
     },
     {
         id: 2,
