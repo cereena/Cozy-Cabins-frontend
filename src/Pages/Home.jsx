@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import PropertyCard from '../Components/PropertyCard';
 import home1Img from "../assets/logo1.png";
 import home2Img from "../assets/logo2.png";
 import home3Img from "../assets/logo3.png";
@@ -11,13 +10,12 @@ import { getAllPropertiesAPI } from '../Service/allApi';
 export default function Home() {
     const [properties, setProperties] = useState([]);
 
-    // Load properties from backend when page loads
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const result = await getAllPropertiesAPI();
                 if (result.status >= 200 && result.status < 300) {
-                    setProperties(result.data); // API should return an array of properties
+                    setProperties(result.data);
                 } else {
                     console.error("Failed to load properties:", result);
                 }
@@ -78,7 +76,7 @@ export default function Home() {
                 </Row>
 
                 {/* Trending properties */}
-                <h2 className="mt-5" style={{ color: "#3eb489", fontWeight: "700px" }}>Trending property listing in Kerala</h2>
+                <h2 className="mt-5" style={{ color: "#3eb489", fontWeight: "700" }}>Trending property listing in Kerala</h2>
                 <p>Properties for rent and sale in key locations</p>
 
                 <Container>
@@ -88,10 +86,10 @@ export default function Home() {
                                 <Card className="h-100">
                                     <Card.Img
                                         variant="top"
-                                        src={p.images?.[0]} // safe access in case images array is missing
+                                        src={p.images?.[0]}
                                         alt={p.title}
                                         style={{ width: "100%", height: "250px", objectFit: "cover" }}
-                                        onError={(e) => (e.target.src = "/placeholder.jpg")} // fallback
+                                        onError={(e) => (e.target.src = "/placeholder.jpg")}
                                     />
                                     <Card.Body>
                                         <Card.Title>{p.title}</Card.Title>
@@ -105,8 +103,6 @@ export default function Home() {
                         ))}
                     </Row>
                 </Container>
-
-
 
                 <div className="text-center mt-4 mb-4">
                     <Button variant='outline-success' as={Link} to="/listings">See more houses</Button>
