@@ -6,11 +6,10 @@ export const addPropertyAPI = async (reqbody) => {
     return await commonApi("POST", `${serverURL}/properties`, reqbody);
 };
 
-// allApi.js
 export const getAllPropertiesAPI = async () => {
     return await commonApi("GET", `${serverURL}/properties`, "");
 };
-return await commonApi("GET", joinURL(serverURL, "/properties"), "");
+;
 
 
 // Get single property
