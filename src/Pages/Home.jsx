@@ -78,18 +78,35 @@ export default function Home() {
                 </Row>
 
                 {/* Trending properties */}
-                <h2 className="mt-5" style={{color:"#3eb489", fontWeight:"700px"}}>Trending property listing in Kerala</h2>
+                <h2 className="mt-5" style={{ color: "#3eb489", fontWeight: "700px" }}>Trending property listing in Kerala</h2>
                 <p>Properties for rent and sale in key locations</p>
 
                 <Container>
                     <Row className="g-4">
                         {properties.slice(0, 3).map((p) => (
                             <Col md={4} key={p.id}>
-                                <PropertyCard property={p} />
+                                <Card className="h-100">
+                                    <Card.Img
+                                        variant="top"
+                                        src={p.images?.[0]} // safe access in case images array is missing
+                                        alt={p.title}
+                                        style={{ width: "100%", height: "250px", objectFit: "cover" }}
+                                        onError={(e) => (e.target.src = "/placeholder.jpg")} // fallback
+                                    />
+                                    <Card.Body>
+                                        <Card.Title>{p.title}</Card.Title>
+                                        <Card.Text>{p.location} — {p.price}</Card.Text>
+                                        <Button as={Link} to={`/property/${p.id}`} variant="success">
+                                            View Details
+                                        </Button>
+                                    </Card.Body>
+                                </Card>
                             </Col>
                         ))}
                     </Row>
                 </Container>
+
+
 
                 <div className="text-center mt-4 mb-4">
                     <Button variant='outline-success' as={Link} to="/listings">See more houses</Button>
