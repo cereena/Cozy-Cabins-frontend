@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 import home1Img from "../assets/logo1.png";
 import home2Img from "../assets/logo2.png";
 import home3Img from "../assets/logo3.png";
-import rent8 from "../assets/rent8.jpg";
+import rent1 from "../assets/rent5.jpg";
 import living1 from "../assets/living1.jpg";
 import room1 from "../assets/room1.jpg";
 import extra1 from "../assets/extra1.jpg";
 import kitchen1 from "../assets/kitchen1.jpg";
-import rent1 from "../assets/rent1.jpg";
+import rent2 from "../assets/rent1.jpg";
 import living3 from "../assets/living3.jpg";
 import room3 from "../assets/room3.jpg";
 import extra3 from "../assets/extra3.jpg";
 import kitchen3 from "../assets/kitchen3.jpg";
-import rent2 from "../assets/rent2.jpg";
+import rent3 from "../assets/rent2.jpg";
 import living2 from "../assets/living2.jpg";
 import room2 from "../assets/room2.jpg";
 import extra2 from "../assets/extra2.jpg";
@@ -38,62 +38,62 @@ import video from "../assets/Main video.mp4";
 import { getAllPropertiesAPI } from '../Service/allApi';
 
 const properties = [
-    {
-        id: 1,
-        title: "Luxury Apartment in Kochi",
-        price: "₹10,000",
-        location: "Kochi",
-        Bedroom: 2,
-        type: "Appartment",
-        images: [rent8, living1, room1, extra1, kitchen1]
-    },
-    {
-        id: 2,
-        title: "Residential Home in Kakkanad",
-        price: "₹10,000",
-        location: "Kakkanad",
-        Bedroom: 3,
-        type: "Appartment",
-        images: [rent1, living3, room3, extra3, kitchen3]
-    },
-    {
-        id: 3,
-        title: "Residential Appartment in Edappally",
-        price: "₹12,000",
-        location: "Edappally",
-        Bedroom: 2,
-        type: "House",
-        images: [rent2, living2, room2, extra2, kitchen2]
-    },
-    {
-        id: 4,
-        title: "Residential Home in Vytilla",
-        price: "₹8,900",
-        location: "Vytilla",
-        Bedroom: 3,
-        type: "House",
-        images: [rent4, living4, room4, extra4, kitchen4]
-    },
-    {
-        id: 5,
-        title: "Residential Appartment in Vytilla",
-        price: "₹6,900",
-        location: "Vytilla",
-        Bedroom: 3,
-        type: "Appartment",
-        images: [rent7, living7, room7, extra7, kitchen7]
-    },
-    {
-        id: 6,
-        title: " Home in Kakkanad",
-        price: "₹4,900",
-        location: "Vytilla",
-        Bedroom: 3,
-        type: "House",
-        images: [rent8, living8, room8, extra8, kitchen8]
-    }
-
+  {
+    id: 1,
+    title: "Luxury Apartment in Kochi",
+    price: "₹10,000",
+    location: "Kochi",
+    Bedroom: 2,
+    type: "Appartment",
+    images: [rent1, living1, room1, extra1, kitchen1]
+  },
+  {
+    id: 2,
+    title: "Residential Home in Kakkanad",
+    price: "₹10,000",
+    location: "Kakkanad",
+    Bedroom: 3,
+    type: "Appartment",
+    images: [rent3, living3, room3, extra3, kitchen3]
+  },
+  {
+    id: 3,
+    title: "Residential Appartment in Edappally",
+    price: "₹12,000",
+    location: "Edappally",
+    Bedroom: 2,
+    type: "House",
+    images: [rent2, living2, room2, extra2, kitchen2]
+  },
+  {
+    id: 4,
+    title: "Residential Home in Vytilla",
+    price: "₹8,900",
+    location: "Vytilla",
+    Bedroom: 3,
+    type: "House",
+    images: [rent4, living4, room4, extra4, kitchen4]
+  },
+  {
+    id: 5,
+    title: "Residential Appartment in Vytilla",
+    price: "₹6,900",
+    location: "Vytilla",
+    Bedroom: 3,
+    type: "Appartment",
+    images: [rent7, living7, room7, extra7, kitchen7]
+  },
+  {
+    id: 6,
+    title: " Home in Kakkanad",
+    price: "₹4,900",
+    location: "Vytilla",
+    Bedroom: 3,
+    type: "House",
+    images: [rent8, living8, room8, extra8, kitchen8]
+  }
 ];
+
 
 export default function Home() {
     const [properties, setProperties] = useState([]);

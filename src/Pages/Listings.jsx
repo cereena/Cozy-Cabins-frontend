@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import PropertyCard from '../Components/PropertyCard';
 import FilterSidebar from '../Components/FilterSidebar';
-import rent8 from "../assets/rent8.jpg";
+import rent1 from "../assets/rent5.jpg";
 import living1 from "../assets/living1.jpg";
 import room1 from "../assets/room1.jpg";
 import extra1 from "../assets/extra1.jpg";
 import kitchen1 from "../assets/kitchen1.jpg";
-import rent1 from "../assets/rent1.jpg";
+import rent2 from "../assets/rent1.jpg";
 import living3 from "../assets/living3.jpg";
 import room3 from "../assets/room3.jpg";
 import extra3 from "../assets/extra3.jpg";
 import kitchen3 from "../assets/kitchen3.jpg";
-import rent2 from "../assets/rent2.jpg";
+import rent3 from "../assets/rent2.jpg";
 import living2 from "../assets/living2.jpg";
 import room2 from "../assets/room2.jpg";
 import extra2 from "../assets/extra2.jpg";
@@ -32,7 +32,6 @@ import living8 from "../assets/living8.jpg";
 import room8 from "../assets/room8.jpg";
 import extra8 from "../assets/extra8.jpg";
 import kitchen8 from "../assets/kitchen8.jpg";
-import { getAllPropertiesAPI } from '../Service/allApi';
 
 
 const properties = [
@@ -43,7 +42,7 @@ const properties = [
     location: "Kochi",
     Bedroom: 2,
     type: "Appartment",
-    images: [rent8, living1, room1, extra1, kitchen1]
+    images: [rent1, living1, room1, extra1, kitchen1]
   },
   {
     id: 2,
@@ -52,7 +51,7 @@ const properties = [
     location: "Kakkanad",
     Bedroom: 3,
     type: "Appartment",
-    images: [rent1, living3, room3, extra3, kitchen3]
+    images: [rent3, living3, room3, extra3, kitchen3]
   },
   {
     id: 3,
@@ -101,23 +100,6 @@ export default function Listings() {
 
   const [propsList, setPropsList] = useState(properties);
   const [filtered, setFiltered] = useState(properties);
-  const [properties, setProperties] = useState([]);
-
-  useEffect(() => {
-          const fetchData = async () => {
-              try {
-                  const result = await getAllPropertiesAPI();
-                  if (result.status >= 200 && result.status < 300) {
-                      setProperties(result.data);
-                  } else {
-                      console.error("Failed to load properties:", result);
-                  }
-              } catch (err) {
-                  console.error("Error fetching properties:", err);
-              }
-          };
-          fetchData();
-      }, []);
 
   const handleSearch = () => {
     let result = propsList;
@@ -175,7 +157,7 @@ export default function Listings() {
             </Form.Select>
 
             <Button
-              style={{ backgroundColor: "black", color: "#3eb489" }}
+             variant='success'
               onClick={handleSearch}
               type="button"
             >
