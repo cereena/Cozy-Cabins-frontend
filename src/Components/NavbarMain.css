@@ -1,0 +1,33 @@
+/* Default (Desktop) */
+.brand-logo {
+  height: 100px;
+  margin-right: 10px;
+  margin-left: 350px; /* keep your original */
+}
+
+.brand-title {
+  font-size: 2rem;
+}
+
+.brand-cozy {
+  font-family: 'Poppins', sans-serif;
+  color: #3eb489;
+  font-weight: 600;
+}
+
+.brand-cabins {
+  font-family: 'Dancing Script', cursive;
+  color: #000;
+}
+
+
+@media (max-width: 992px) {
+  .brand-logo {
+    height: 50px; /* smaller logo */
+    margin-left: 0; /* remove the big margin */
+  }
+
+  .brand-title {
+    font-size: 1.2rem; /* shrink text */
+  }
+}
